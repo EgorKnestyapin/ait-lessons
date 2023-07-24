@@ -1,8 +1,8 @@
 public class Main {
     public static void main(String[] args) {
         // Написать программу, вычисляющую и выводящую на печать ASCII значение символа 'B'
-        char ch = 'B';
-        System.out.println("ch value is " + ch); // ch value is B
+        int chInt = 'B';
+        System.out.println("Symbol 'B' value in ASCII is " + chInt); // ch value is B
 
         /* Даны две строки а и в. Написать программу, соединяющую их и выводящую на экран в виде abba,
         Например "Hi" и "Bye" должны быть напечатаны как HiByeByeHi
