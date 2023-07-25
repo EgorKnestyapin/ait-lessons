@@ -14,9 +14,7 @@ public class Main {
         int a = 10;
         int b = 9;
 
-        if (a == 10 || b == 10 || a + b == 10) {
-            System.out.println(true);
-        } else
-            System.out.println(false);
+        boolean result = a == 10 || b == 10 || a + b == 10;
+        System.out.println(result);
     }
 }
