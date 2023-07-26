@@ -1,4 +1,4 @@
-package lesson;
+package while_loop;
 
 public class AbsNumber {
     public static void main(String[] args) {

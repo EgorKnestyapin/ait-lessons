@@ -1,4 +1,4 @@
-package lesson;
+package while_loop;
 
 public class RandomGame {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package lesson;
+package while_loop;
 
 public class Triangle {
     public static void main(String[] args) {
