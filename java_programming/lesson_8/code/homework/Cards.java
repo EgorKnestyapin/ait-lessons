@@ -19,12 +19,12 @@ public class Cards {
         String cardSuit;
         boolean flag = false;
         while (i < 24) {
-            j = 0;
+            i = 0;
             suitIndex = (int) (Math.random()*(b - a + 1) + a);
             cardIndex = (int) (Math.random()*(c - a + 1) + a);
             cardSuit = cardsArr[cardIndex] + " " + suitsArr[suitIndex];
             while (j < i) {
-                if (playersCards[j] == cardSuit) {
+                if (playersCards[j].equals(cardSuit)) {
                     flag = true;
                 }
                 j++;

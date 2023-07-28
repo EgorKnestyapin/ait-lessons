@@ -1,4 +1,4 @@
-package lesson;
+package for_loop;
 
 public class Marks {
     public static void main(String[] args) {

@@ -13,8 +13,7 @@ public class HeightArray {
         while (i < heightArr.length) {
             if (heightArr[i] > maxHeight) {
                 maxHeight = heightArr[i];
-            }
-            if (heightArr[i] < minHeight) {
+            } else if (heightArr[i] < minHeight) {
                 minHeight = heightArr[i];
             }
             i++;

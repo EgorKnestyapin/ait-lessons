@@ -1,4 +1,4 @@
-package lesson;
+package for_loop;
 
 public class MinElAndIndex {
     public static void main(String[] args) {
