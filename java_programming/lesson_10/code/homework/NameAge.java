@@ -11,11 +11,11 @@ public class NameAge {
         Age: 25
          */
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Input name:");
+        System.out.println("Input your name:");
         String name = scanner.nextLine();
-        System.out.println("Input surname:");
+        System.out.println("Input your surname:");
         String surname = scanner.nextLine();
-        System.out.println("Input age:");
+        System.out.println("Input your age:");
         int age = scanner.nextInt();
         System.out.println("First name: " + name + "\nLast name: " + surname + "\nAge: " + age);
     }
