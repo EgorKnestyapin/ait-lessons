@@ -13,7 +13,7 @@ public class MileKm {
     }
 
     public static void convertMileToKm(double milePerHour) {
-        double kmPerHour = milePerHour / 1.609;
+        double kmPerHour = milePerHour * 1.609;
         System.out.printf("Kilometer per hour is %.2f", kmPerHour);
     }
 }
