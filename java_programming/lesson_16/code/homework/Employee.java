@@ -14,4 +14,7 @@ public class Employee {
     Date endOfWork;
     boolean isDismissed;
 
+    void canWork() {
+        System.out.println("This employee knows how to work");
+    }
 }
