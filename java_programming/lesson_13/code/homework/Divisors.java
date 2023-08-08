@@ -18,11 +18,10 @@ public class Divisors {
             }
         }
         int[] divisorsArr = new int[sum];
-        int index = 0;
-        for (int i = 1; i <= num; i++) {
+        for (int i = 1, j = 0; i <= num; i++) {
             if (num % i == 0) {
-                divisorsArr[index] = i;
-                index++;
+                divisorsArr[j] = i;
+                j++;
             }
         }
         return divisorsArr;

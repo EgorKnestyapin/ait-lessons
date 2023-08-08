@@ -11,6 +11,8 @@
       <sourceFolder url="file://$MODULE_DIR$/java_programming/lesson_11/code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/java_programming/lesson_12/code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/java_programming/lesson_13/code" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_programming/lesson_15/code" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java_programming/lesson_16/code" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
