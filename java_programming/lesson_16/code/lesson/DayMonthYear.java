@@ -9,7 +9,7 @@ public class DayMonthYear {
     static String getStringDayMonthYear(int day, int month, int year) {
         String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "September",
                 "October", "November", "December"};
-        String dayString = day > 10 ? "" + day : "0" + day;
+        String dayString = day >= 10 ? "" + day : "0" + day;
         return dayString + ". " + months[month - 1] + " " + year;
     }
 }
