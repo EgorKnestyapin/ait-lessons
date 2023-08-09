@@ -40,12 +40,12 @@ public class PrintStudentInfo {
         dateStartCourse2.year = 2022;
         student2.startCourse = dateStartCourse2;
 
-        printStudent(student1);
-        printStudent(student2);
+        System.out.println(studentToString(student1));
+        System.out.println(studentToString(student2));
     }
-    public static void printStudent(Student student) {
-        System.out.println(student.firstName + " " + student.lastName + " " + student.group);
-        System.out.println("Birthday: " + DayMonthYear.getStringDayMonthYear(student.birthday));
-        System.out.println("The beginning of the course: " + DayMonthYear.getStringDayMonthYear(student.startCourse));
+    public static String studentToString(Student student) {
+        return student.firstName + " " + student.lastName + " " + student.group + "\nBirthday: " +
+                DayMonthYear.getStringDayMonthYear(student.birthday) +  "\nThe beginning of the course: " +
+                DayMonthYear.getStringDayMonthYear(student.startCourse);
     }
 }
