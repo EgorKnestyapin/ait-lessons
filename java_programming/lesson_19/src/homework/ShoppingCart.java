@@ -38,7 +38,7 @@ public class ShoppingCart {
     public String getTotalPrice() {
         double price = 0;
         for (int i = 0; i < size; i++) {
-            price += products[i].getPrice();
+            price += products[i].getPrice() * products[i].getQuantity();
         }
         return "Total price: " + price;
     }

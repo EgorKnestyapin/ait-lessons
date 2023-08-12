@@ -10,8 +10,8 @@ public class Main {
         добавления товара в корзину. Реализовать метод, который распечатает весь заказ.
         Реализовать метод, который вернет сумму заказа.
          */
-        Product product1 = new Product("Orange", 120, 78);
-        Product product2 = new Product("Pineapple", 500, 45);
+        Product product1 = new Product("Orange", 120, 5);
+        Product product2 = new Product("Pineapple", 500, 2);
         ShoppingCart shoppingCart1 = new ShoppingCart();
         shoppingCart1.add(product1);
         shoppingCart1.add(product2);

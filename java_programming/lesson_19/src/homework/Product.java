@@ -3,20 +3,20 @@ package homework;
 public class Product {
     private String name;
     private double price;
-    private int quantityInStock;
+    private int quantity;
     private String description = "";
 
     public Product(String name, double price, int quantity, String description) {
         this.name = name;
         this.price = price;
-        this.quantityInStock = quantity;
+        this.quantity = quantity;
         this.description = description;
     }
 
     public Product(String name, double price, int quantity) {
         this.name = name;
         this.price = price;
-        this.quantityInStock = quantity;
+        this.quantity = quantity;
     }
 
     public String getName() {
@@ -27,8 +27,8 @@ public class Product {
         return price;
     }
 
-    public int getQuantityInStock() {
-        return quantityInStock;
+    public int getQuantity() {
+        return quantity;
     }
 
     public String getDescription() {
@@ -36,6 +36,6 @@ public class Product {
     }
 
     public String toString() {
-        return name + ", price: " + price + ", quantity in stock: " + quantityInStock + " " + description;
+        return name + ", price: " + price + ", quantity in cart: " + quantity + " " + description;
     }
 }
