@@ -1,11 +1,11 @@
 package homework;
 
 public class Car {
-    String brand;
-    String color;
-    String licensePlate;
-    MyDate registrationDate;
-    Engine engine;
+    private String brand;
+    private String color;
+    private String licensePlate;
+    private MyDate registrationDate;
+    private Engine engine;
 
     private boolean isDriven;
 

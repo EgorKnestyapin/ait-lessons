@@ -1,9 +1,9 @@
 package homework;
 
 public class MyDate {
-    int day;
-    int month;
-    int year;
+    private int day;
+    private int month;
+    private int year;
 
     public MyDate(int day, int month, int year) {
         this.day = day;

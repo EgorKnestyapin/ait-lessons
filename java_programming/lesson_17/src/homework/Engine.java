@@ -1,8 +1,8 @@
 package homework;
 
 public class Engine {
-    double power;
-    String type;
+    private double power;
+    private String type;
 
     public Engine(double power, String type) {
         this.power = power;
