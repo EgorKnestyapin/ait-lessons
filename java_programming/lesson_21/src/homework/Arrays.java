@@ -30,6 +30,7 @@ public class Arrays {
             changePlaceElements(arr, i, index);
         }
     }
+
     public static void changePlaceElements(int[] arr, int index1, int index2) {
         int temp = arr[index1];
         arr[index1] = arr[index2];
