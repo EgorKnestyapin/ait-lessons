@@ -36,4 +36,17 @@ public class Arrays {
         arr[index1] = arr[index2];
         arr[index2] = temp;
     }
+
+    public static void bubbleSort(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            boolean isSorted = true;
+            for (int j = 0; j < arr.length - 1 - i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    changePlaceElements(arr, j, j + 1);
+                    isSorted = false;
+                }
+            }
+            if (isSorted) return;
+        }
+    }
 }
