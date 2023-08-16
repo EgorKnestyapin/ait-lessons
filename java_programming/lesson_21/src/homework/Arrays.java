@@ -18,20 +18,20 @@ public class Arrays {
     }
 
     public static void doSelectionSort(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            int min = arr[i];
-            int index = i;
-            for (int j = i; j < arr.length; j++) {
-                if (arr[j] < min) {
-                    index = j;
-                    min = arr[j];
+        for (int i = 0; i < arr.length - 1; i++) {
+            int min = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[min]) {
+                    min = j;
                 }
             }
-            changePlaceElements(arr, i, index);
+            if (arr[min] < arr[i]) {
+                changePlaceElements(arr, i, min);
+            }
         }
     }
 
-    public static void changePlaceElements(int[] arr, int index1, int index2) {
+    private static void changePlaceElements(int[] arr, int index1, int index2) {
         int temp = arr[index1];
         arr[index1] = arr[index2];
         arr[index2] = temp;
