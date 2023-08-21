@@ -6,7 +6,7 @@ public class User {
 
     public User(String email, String password) {
         setEmail(email);
-        this.password = password;
+        setPassword(password);
     }
 
     public String getEmail() {
