@@ -1,6 +1,6 @@
 package homework;
 
-import lesson.MyDate;
+import ait.user.model.MyDate;
 
 public class Student {
     String firstName;

@@ -1,7 +1,7 @@
 package homework;
 
-import lesson.DayMonthYear;
-import lesson.MyDate;
+import ait.user.model.DayMonthYear;
+import ait.user.model.MyDate;
 
 public class PrintStudentInfo {
     public static void main(String[] args) {
