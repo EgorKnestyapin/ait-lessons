@@ -28,6 +28,7 @@ public class User {
     4) alphabetic, digits, '@', '.', '_', '-'
      */
     private boolean isEmailValid(String email) {
+        email = email.trim();
         int at = email.indexOf('@');
         if (at == -1 || email.lastIndexOf('@') != at) {
             return false;
@@ -38,8 +39,15 @@ public class User {
         if (email.lastIndexOf('.') > email.length() - 3) {
             return false;
         }
-        for (int i = 0; i < email.length(); i++) {
-            char c = email.charAt(i);
+        // Метод split превращает строку в массив строк по одному элементу. В задании нужно получить массив символов.
+        // Метод split не подходит для решения данной задачи.
+        // String[] chars = email.split("");
+        char[] chars = new char[email.length()];
+        for (int i = 0; i < chars.length; i++) {
+            chars[i] = email.charAt(i);
+        }
+        for (int i = 0; i < chars.length; i++) {
+            char c = chars[i];
             if (!(Character.isDigit(c) || Character.isAlphabetic(c) || c == '@' || c == '.' || c == '_' || c == '-')) {
                 return false;
             }
@@ -72,8 +80,12 @@ public class User {
         boolean isMinOneSymbolLowercase = false;
         boolean isMinOneSymbolDigit = false;
         boolean isMinOneSymbolSpecial = false;
-        for (int i = 0; i < password.length(); i++) {
-            char c = password.charAt(i);
+        char[] chars = new char[password.length()];
+        for (int i = 0; i < chars.length; i++) {
+            chars[i] = password.charAt(i);
+        }
+        for (int i = 0; i < chars.length; i++) {
+            char c = chars[i];
             if (c == '!' || c == '%' || c == '@' || c == '*' || c == '&') isMinOneSymbolSpecial = true;
             else if (Character.isDigit(c)) isMinOneSymbolDigit = true;
             else if (c == Character.toUpperCase(c)) isMinOneSymbolUppercase = true;

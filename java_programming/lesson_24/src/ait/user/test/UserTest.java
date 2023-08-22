@@ -25,6 +25,9 @@ class UserTest {
         String validEmail = "john@gmx.de";
         user.setEmail(validEmail);
         assertEquals(validEmail, user.getEmail());
+        validEmail = "   john@gmx.de  ";
+        user.setEmail(validEmail);
+        assertEquals(validEmail, user.getEmail());
     }
 
     @Test
