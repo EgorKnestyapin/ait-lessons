@@ -78,8 +78,11 @@ public class User {
             else if (Character.isDigit(c)) isMinOneSymbolDigit = true;
             else if (c == Character.toUpperCase(c)) isMinOneSymbolUppercase = true;
             else if (c == Character.toLowerCase(c)) isMinOneSymbolLowercase = true;
+            if (isMinOneSymbolUppercase && isMinOneSymbolLowercase && isMinOneSymbolDigit && isMinOneSymbolSpecial) {
+                return true;
+            }
         }
-        return isMinOneSymbolUppercase && isMinOneSymbolLowercase && isMinOneSymbolDigit && isMinOneSymbolSpecial;
+        return false;
     }
 
     @Override
