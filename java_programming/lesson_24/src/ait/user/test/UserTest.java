@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class UserTest {
     private User user;
     private String email = "john@gmail.com";
-    private String password = "1234";
+    private String password = "Qwerty123!";
 
     @BeforeEach
     void setUp() {
