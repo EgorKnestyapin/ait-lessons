@@ -14,6 +14,7 @@ public class User {
     }
 
     public void setEmail(String email) {
+        email = email.trim().toLowerCase();
         if (isEmailValid(email)) {
             this.email = email;
         } else {
@@ -28,7 +29,6 @@ public class User {
     4) alphabetic, digits, '@', '.', '_', '-'
      */
     private boolean isEmailValid(String email) {
-        email = email.trim();
         int at = email.indexOf('@');
         if (at == -1 || email.lastIndexOf('@') != at) {
             return false;
