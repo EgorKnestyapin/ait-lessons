@@ -16,6 +16,7 @@ public class FigureAppl {
         System.out.printf("Total area of all figures: %.2f\n", getTotalArea(shapes));
         System.out.printf("Total perimeter of all figures: %.2f\n", getTotalPerimeter(shapes));
         System.out.printf("Total area of all circles: %.2f\n", getTotalCircleArea(shapes));
+        System.out.println(shapes[1]);
     }
 
     private static double getTotalArea(Shape[] shapes) {
