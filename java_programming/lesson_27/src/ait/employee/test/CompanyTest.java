@@ -51,13 +51,18 @@ class CompanyTest {
     void findEmployee() {
         assertEquals(employees[1], company.findEmployee(2000));
         assertEquals(null, company.findEmployee(9999));
+        company.removeEmployee(3000);
+        assertEquals(null, company.findEmployee(3000));
     }
 
     @org.junit.jupiter.api.Test
     void quantity() {
         assertEquals(4, company.quantity());
         Employee employee = new SalesManager(5000, "Rabindranate", "Anand", 80, 30000, 0.1);
+        company.addEmployee(employee);
         assertEquals(5, company.quantity());
+        company.removeEmployee(5000);
+        assertEquals(4, company.quantity());
     }
 
     @org.junit.jupiter.api.Test
@@ -76,6 +81,9 @@ class CompanyTest {
         company.addEmployee(employee);
         employees[4] = employee;
         assertEquals(totalSalary(employees) / employees.length, company.totalSalary());
+        company.removeEmployee(5000);
+        employees[4] = null;
+        assertEquals(totalSalary(employees) / employees.length, company.totalSalary());
     }
 
     @org.junit.jupiter.api.Test
@@ -84,6 +92,9 @@ class CompanyTest {
         Employee employee = new SalesManager(5000, "Rabindranate", "Anand", 80, 30000, 0.1);
         company.addEmployee(employee);
         employees[4] = employee;
+        assertEquals(totalSales(employees), company.totalSales());
+        company.removeEmployee(5000);
+        employees[4] = null;
         assertEquals(totalSales(employees), company.totalSales());
     }
 
