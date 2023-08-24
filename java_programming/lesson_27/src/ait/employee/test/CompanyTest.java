@@ -72,6 +72,9 @@ class CompanyTest {
         company.addEmployee(employee);
         employees[4] = employee;
         assertEquals(totalSalary(employees), company.totalSalary());
+        company.removeEmployee(5000);
+        employees[4] = null;
+        assertEquals(totalSalary(employees), company.totalSalary());
     }
 
     @org.junit.jupiter.api.Test
@@ -83,7 +86,7 @@ class CompanyTest {
         assertEquals(totalSalary(employees) / employees.length, company.totalSalary());
         company.removeEmployee(5000);
         employees[4] = null;
-        assertEquals(totalSalary(employees) / employees.length, company.totalSalary());
+        assertEquals(totalSalary(employees) / (employees.length - 1), company.totalSalary());
     }
 
     @org.junit.jupiter.api.Test
