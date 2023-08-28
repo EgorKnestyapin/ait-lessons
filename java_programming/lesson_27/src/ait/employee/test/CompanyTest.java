@@ -38,21 +38,25 @@ class CompanyTest {
         employee = new SalesManager(4000, "Rabindranate", "Anand", 80, 30000, 0.1);
         assertFalse(company.addEmployee(employee));
         employee = new SalesManager(6000, "Rabindranate", "Anand", 80, 30000, 0.1);
+        assertTrue(company.addEmployee(employee));
+        employee = new SalesManager(7000, "Rabindranate", "Anand", 80, 30000, 0.1);
         assertFalse(company.addEmployee(employee));
     }
 
     @org.junit.jupiter.api.Test
     void removeEmployee() {
         assertEquals(employees[1], company.removeEmployee(2000));
-        assertEquals(null, company.removeEmployee(9999));
+        assertEquals(3, company.quantity());
+        assertNull(company.removeEmployee(2000));
+        assertNull(company.removeEmployee(9999));
     }
 
     @org.junit.jupiter.api.Test
     void findEmployee() {
         assertEquals(employees[1], company.findEmployee(2000));
-        assertEquals(null, company.findEmployee(9999));
+        assertNull( company.findEmployee(9999));
         company.removeEmployee(3000);
-        assertEquals(null, company.findEmployee(3000));
+        assertNull(company.findEmployee(3000));
     }
 
     @org.junit.jupiter.api.Test
@@ -67,38 +71,38 @@ class CompanyTest {
 
     @org.junit.jupiter.api.Test
     void totalSalary() {
-        assertEquals(totalSalary(employees), company.totalSalary());
+        assertEquals(totalSalary(employees), company.totalSalary(), 0.01);
         Employee employee = new SalesManager(5000, "Rabindranate", "Anand", 80, 30000, 0.1);
         company.addEmployee(employee);
         employees[4] = employee;
-        assertEquals(totalSalary(employees), company.totalSalary());
+        assertEquals(totalSalary(employees), company.totalSalary(), 0.01);
         company.removeEmployee(5000);
         employees[4] = null;
-        assertEquals(totalSalary(employees), company.totalSalary());
+        assertEquals(totalSalary(employees), company.totalSalary(), 0.01);
     }
 
     @org.junit.jupiter.api.Test
     void avgSalary() {
-        assertEquals(totalSalary(employees) / (employees.length - 1), company.totalSalary());
+        assertEquals(totalSalary(employees) / (employees.length - 1), company.totalSalary(), 0.01);
         Employee employee = new SalesManager(5000, "Rabindranate", "Anand", 80, 30000, 0.1);
         company.addEmployee(employee);
         employees[4] = employee;
-        assertEquals(totalSalary(employees) / employees.length, company.totalSalary());
+        assertEquals(totalSalary(employees) / employees.length, company.totalSalary(), 0.01);
         company.removeEmployee(5000);
         employees[4] = null;
-        assertEquals(totalSalary(employees) / (employees.length - 1), company.totalSalary());
+        assertEquals(totalSalary(employees) / (employees.length - 1), company.totalSalary(), 0.01);
     }
 
     @org.junit.jupiter.api.Test
     void totalSales() {
-        assertEquals(totalSales(employees), company.totalSales());
+        assertEquals(totalSales(employees), company.totalSales(), 0.01);
         Employee employee = new SalesManager(5000, "Rabindranate", "Anand", 80, 30000, 0.1);
         company.addEmployee(employee);
         employees[4] = employee;
-        assertEquals(totalSales(employees), company.totalSales());
+        assertEquals(totalSales(employees), company.totalSales(), 0.01);
         company.removeEmployee(5000);
         employees[4] = null;
-        assertEquals(totalSales(employees), company.totalSales());
+        assertEquals(totalSales(employees), company.totalSales(), 0.01);
     }
 
     @org.junit.jupiter.api.Test
