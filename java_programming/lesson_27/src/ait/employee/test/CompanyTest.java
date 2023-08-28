@@ -6,6 +6,7 @@ import ait.employee.model.Employee;
 import ait.employee.model.Manager;
 import ait.employee.model.SalesManager;
 import ait.employee.model.WageEmployee;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -54,7 +55,7 @@ class CompanyTest {
     @org.junit.jupiter.api.Test
     void findEmployee() {
         assertEquals(employees[1], company.findEmployee(2000));
-        assertNull( company.findEmployee(9999));
+        assertNull(company.findEmployee(9999));
         company.removeEmployee(3000);
         assertNull(company.findEmployee(3000));
     }
@@ -83,14 +84,14 @@ class CompanyTest {
 
     @org.junit.jupiter.api.Test
     void avgSalary() {
-        assertEquals(totalSalary(employees) / (employees.length - 1), company.totalSalary(), 0.01);
+        assertEquals(totalSalary(employees) / (employees.length - 1), company.avgSalary(), 0.01);
         Employee employee = new SalesManager(5000, "Rabindranate", "Anand", 80, 30000, 0.1);
         company.addEmployee(employee);
         employees[4] = employee;
-        assertEquals(totalSalary(employees) / employees.length, company.totalSalary(), 0.01);
+        assertEquals(totalSalary(employees) / employees.length, company.avgSalary(), 0.01);
         company.removeEmployee(5000);
         employees[4] = null;
-        assertEquals(totalSalary(employees) / (employees.length - 1), company.totalSalary(), 0.01);
+        assertEquals(totalSalary(employees) / (employees.length - 1), company.avgSalary(), 0.01);
     }
 
     @org.junit.jupiter.api.Test
@@ -108,6 +109,20 @@ class CompanyTest {
     @org.junit.jupiter.api.Test
     void printEmployees() {
         company.printEmployees();
+    }
+
+    @Test
+    void findEmployeesHoursGreaterThan() {
+        Employee[] actual = company.findEmployeesHoursGreaterThan(100);
+        Employee[] expected = {employees[0], employees[1], employees[2]};
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void findEmployeesSalaryRange() {
+        Employee[] actual = company.findEmployeesSalaryRange(2000, 2500);
+        Employee[] expected = {employees[1], employees[2]};
+        assertArrayEquals(expected, actual);
     }
 
     private double totalSales(Employee[] employees) {

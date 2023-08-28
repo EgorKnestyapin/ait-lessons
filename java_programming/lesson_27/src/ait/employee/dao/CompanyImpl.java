@@ -1,6 +1,7 @@
 package ait.employee.dao;
 
 import ait.employee.model.Employee;
+import ait.employee.model.SalesManager;
 
 public class CompanyImpl implements Company {
     private Employee[] employees;
@@ -12,41 +13,109 @@ public class CompanyImpl implements Company {
 
     @Override
     public boolean addEmployee(Employee employee) {
-        return false;
+        if (employee == null || employees.length == size || findEmployee(employee.getId()) != null) {
+            return false;
+        }
+        employees[size] = employee;
+        size++;
+        return true;
     }
 
     @Override
     public Employee removeEmployee(int id) {
+        for (int i = 0; i < size; i++) {
+            if (employees[i].getId() == id) {
+                Employee victim = employees[i];
+                employees[i] = employees[size - 1];
+                employees[size - 1] = null;
+                size--;
+                return victim;
+            }
+        }
         return null;
     }
 
     @Override
     public Employee findEmployee(int id) {
+        for (int i = 0; i < size; i++) {
+            if (employees[i].getId() == id) {
+                return employees[i];
+            }
+        }
         return null;
     }
 
     @Override
     public int quantity() {
-        return 0;
+        return size;
     }
 
     @Override
     public double totalSalary() {
-        return 0;
+        double sum = 0;
+        for (int i = 0; i < size; i++) {
+            sum += employees[i].calcSalary();
+        }
+        return sum;
     }
 
     @Override
     public double avgSalary() {
-        return 0;
+        return totalSalary() / size;
     }
 
     @Override
     public double totalSales() {
-        return 0;
+        double sum = 0;
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i] instanceof SalesManager) {
+                SalesManager sm = (SalesManager) employees[i];
+                sum += sm.getSalesValue();
+            }
+        }
+        return sum;
     }
 
     @Override
     public void printEmployees() {
+        for (int i = 0; i < size; i++) {
+            System.out.println(employees[i]);
+        }
+    }
 
+    @Override
+    public Employee[] findEmployeesHoursGreaterThan(int hours) {
+        int counter = 0;
+        for (int i = 0; i < size; i++) {
+            if (employees[i].getHours() >= hours) {
+                counter++;
+            }
+        }
+        Employee[] res = new Employee[counter];
+        for (int i = 0, j = 0; j < res.length; i++) {
+            if (employees[i].getHours() >= hours) {
+                res[j] = employees[i];
+                j++;
+            }
+        }
+        return res;
+    }
+
+    @Override
+    public Employee[] findEmployeesSalaryRange(int minSalary, int maxSalary) {
+        int counter = 0;
+        for (int i = 0; i < size; i++) {
+            if (employees[i].calcSalary() >= minSalary && employees[i].calcSalary() < maxSalary) {
+                counter++;
+            }
+        }
+        Employee[] res = new Employee[counter];
+        for (int i = 0, j = 0; j < res.length; i++) {
+            if (employees[i].calcSalary() >= minSalary && employees[i].calcSalary() < maxSalary) {
+                res[j] = employees[i];
+                j++;
+            }
+        }
+        return res;
     }
 }
