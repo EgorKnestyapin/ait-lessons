@@ -70,7 +70,7 @@ public class GarageImpl implements Garage {
         return findCarsByPredicate(predicate);
     }
 
-    public Car[] findCarsByPredicate(Predicate<Car> predicate) {
+    private Car[] findCarsByPredicate(Predicate<Car> predicate) {
         int counter = 0;
         for (int i = 0; i < size; i++) {
             if (predicate.test(cars[i])) {
