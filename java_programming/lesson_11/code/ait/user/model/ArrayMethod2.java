@@ -14,7 +14,7 @@ public class ArrayMethod2 {
         System.out.println("Input a number:");
         int num = scanner.nextInt();
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = random.nextInt(-10, 10);
+            arr[i] = -10 + random.nextInt( 20);
         }
         findNumber(arr, num);
     }

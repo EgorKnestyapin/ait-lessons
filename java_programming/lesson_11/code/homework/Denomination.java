@@ -11,7 +11,7 @@ public class Denomination {
         Random random = new Random();
         int[] clientBills = new int[20];
         for (int i = 0; i < clientBills.length; i++) {
-            clientBills[i] = random.nextInt(10000, 100000000);
+            clientBills[i] = 10000 + random.nextInt(100000000 - 10000);
         }
         convertToNewSystem(clientBills);
     }
