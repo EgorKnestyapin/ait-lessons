@@ -21,10 +21,17 @@ public class CowsGraze {
             case 1:
                 System.out.println("На лугу пасется " + n + " корова");
                 break;
-            case 2, 3, 4:
+            case 2:
+            case 3:
+            case 4:
                 System.out.println(n + " коровы");
                 break;
-            case 5, 6, 7, 8, 9, 10:
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
                 System.out.println(n + " коров");
         }
     }
