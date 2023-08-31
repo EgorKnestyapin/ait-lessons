@@ -11,6 +11,7 @@ import java.util.Comparator;
 public class DateSortTest {
     Comparator<String> dateComparator;
     Comparator<String> dateComparator2;
+    Comparator<String> dateComparator3;
 
     @BeforeEach
     void setUp() {
@@ -58,6 +59,18 @@ public class DateSortTest {
                 return 0;
             }
         };
+        dateComparator3 = (s1, s2) -> {
+            for (int i = 2; i >= 0; i--) {
+                int date1 = Integer.parseInt(s1.split("-")[i]);
+                int date2 = Integer.parseInt(s2.split("-")[i]);
+                if (date1 > date2) {
+                    return 1;
+                } else if (date1 < date2) {
+                    return -1;
+                }
+            }
+            return 0;
+        };
     }
 
     @Test
@@ -97,6 +110,26 @@ public class DateSortTest {
                 "28-01-2010"
         };
         Arrays.sort(dates, dateComparator2);
+        assertArrayEquals(expected, dates);
+    }
+
+    @Test
+    void testDateSort3() {
+        String[] dates = {
+                "07-05-1990",
+                "28-01-2010",
+                "11-08-1990",
+                "15-01-2010",
+                "16-06-1970"
+        };
+        String[] expected = {
+                "16-06-1970",
+                "07-05-1990",
+                "11-08-1990",
+                "15-01-2010",
+                "28-01-2010"
+        };
+        Arrays.sort(dates, dateComparator3);
         assertArrayEquals(expected, dates);
     }
 }
