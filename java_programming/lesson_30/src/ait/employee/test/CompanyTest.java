@@ -1,6 +1,7 @@
 package ait.employee.test;
 
 import ait.employee.dao.Company;
+import ait.employee.dao.CompanyArraysImpl;
 import ait.employee.dao.CompanyImpl;
 import ait.employee.model.Employee;
 import ait.employee.model.Manager;
@@ -16,7 +17,7 @@ class CompanyTest {
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
-        company = new CompanyImpl(6);
+        company = new CompanyArraysImpl(6);
         employees = new Employee[5];
         employees[0] = new Manager(1000, "John", "Smith", 160, 5000, 5);
         employees[1] = new WageEmployee(2000, "Mary", "Smith", 160, 15);
