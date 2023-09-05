@@ -1,6 +1,7 @@
 package homework;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -16,14 +17,14 @@ public class Main {
         list2.add(2);
         list2.add(3);
         list2.add(8);
-        System.out.println(getEqualSameElementInTwoLists(list1, list2)); // {No, Yes, Yes, No}
+        System.out.println(getEqualSameElementInTwoLists(list1, list2)); // [No, Yes, Yes, No]
 
         List<Integer> list = new ArrayList<>();
         list.add(4);
         list.add(7);
         list.add(8);
         list.add(1);
-        System.out.println(getListWithoutNumbersMoreThan(list, 5));
+        System.out.println(getListWithoutNumbersMoreThan(list, 5)); // [4, 1]
     }
     /* Написать метод, принимающий два листа целых чисел одинаковой длины и возвращающий лист, содержащий элементы Yes
     или No, где значения на i-м месте зависит от того, равны ли элементы этих двух листов под номером i.
@@ -43,12 +44,14 @@ public class Main {
 
     // Написать метод, принимающий лист целых чисел и целое число и возвращающий лист без элементов больших этого числа.
     public static List<Integer> getListWithoutNumbersMoreThan(List<Integer> list, int num) {
-        Iterator<Integer> iterator = list.iterator();
+        List<Integer> res = new ArrayList<>();
+        res.addAll(list);
+        Iterator<Integer> iterator = res.iterator();
         while (iterator.hasNext()) {
             if (iterator.next() > num) {
                 iterator.remove();
             }
         }
-        return list;
+        return res;
     }
 }
