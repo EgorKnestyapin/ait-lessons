@@ -1,18 +1,17 @@
 package homework;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+        // List<Integer> list1 = Arrays.asList(1,2,3,4);
+        // List<Integer> list2 = List.of(5,2,3,8);
         List<Integer> list1 = new ArrayList<>();
         list1.add(1);
         list1.add(2);
         list1.add(3);
         list1.add(4);
-        List<Integer> list2 = new ArrayList<>();
+        List<Integer> list2 = new ArrayList<>(list1);
         list2.add(5);
         list2.add(2);
         list2.add(3);
@@ -33,7 +32,7 @@ public class Main {
     public static List<String> getEqualSameElementInTwoLists(List<Integer> list1, List<Integer> list2) {
         List<String> res = new ArrayList<>();
         for (int i = 0; i < list1.size(); i++) {
-            if (list1.get(i) == list2.get(i)) {
+            if (list1.get(i).equals(list2.get(i))) {
                 res.add("Yes");
             } else {
                 res.add("No");
