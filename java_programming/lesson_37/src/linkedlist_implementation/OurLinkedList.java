@@ -150,7 +150,24 @@ public class OurLinkedList<E> implements OurList<E> {
 
     @Override
     public Iterator<E> iterator() {
-        return null;
+        return new Iterator<E>() {
+            Node<E> activeNode = first;
+
+            @Override
+            public boolean hasNext() {
+                return activeNode != null;
+            }
+
+            @Override
+            public E next() {
+                if (hasNext()) {
+                    E value = activeNode.value;
+                    activeNode = activeNode.next;
+                    return value;
+                }
+                return null;
+            }
+        };
     }
 
     private static class Node<E> {
