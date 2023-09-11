@@ -141,7 +141,7 @@ public class OurLinkedList<E> implements OurList<E> {
     // Реализовать метод печати для нашего листа
     public void printList() {
         Node<E> currentNode = first;
-        for (int i = 0; i < size; i++) {
+        while (currentNode != null) {
             System.out.println(currentNode.value);
             currentNode = currentNode.next;
         }
