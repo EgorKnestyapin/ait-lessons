@@ -103,6 +103,36 @@ public class OurLinkedList<E> implements OurList<E> {
         }
         return null;
     }
+
+    private E removeNode2(Node<E> deletedNode) {
+        if (deletedNode != null) {
+            E value = deletedNode.value;
+            Node<E> prev = deletedNode.prev;
+            Node<E> next = deletedNode.next;
+            if (prev == null && next == null) {
+                first = null;
+                last = null;
+                size = 0;
+                return value;
+            }
+            if (prev != null) {
+                prev.next = next;
+            } else {
+                first = next;
+                first.prev = null;
+            }
+            if (next != null) {
+                next.prev = prev;
+            } else {
+                last = prev;
+                last.next = null;
+            }
+            size--;
+            return value;
+        }
+        return null;
+    }
+
     @Override
     public boolean remove(E value) {
         Node<E> deletedNode = getNodeByValue(value);
