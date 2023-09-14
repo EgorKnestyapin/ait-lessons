@@ -52,6 +52,7 @@ public class Main {
         for (Student student : students) {
             map.putIfAbsent(student, 0);
             map.put(student, map.get(student) + 1);
+            // либо использовать map.put(student, map.getOrDefault(student, 0) + 1)
         }
         return map;
     }
