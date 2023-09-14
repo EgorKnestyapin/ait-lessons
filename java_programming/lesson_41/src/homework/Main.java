@@ -24,6 +24,12 @@ public class Main {
     Примеры: mapAB({"a": "Hi", "b": "There"}) → {"a": "Hi", "ab": "HiThere", "b":"There"} mapAB({"a": "Hi"}) → 
     {"a": "Hi"} mapAB({"b": "There"}) → {"b": "There"}
      */
+    public static void mapAB(Map<String, String> map, String key1, String key2) {
+        if (map != null && map.containsKey(key1) && map.containsKey(key2)) {
+            map.put(key1 + key2, map.get(key1) + map.get(key2));
+        }
+    }
+
     public static Map<String, String> createNewKeyWithSumValue(Map<String, String> map) {
         Set<Map.Entry<String, String>> entries = map.entrySet();
         String keySum = "";
