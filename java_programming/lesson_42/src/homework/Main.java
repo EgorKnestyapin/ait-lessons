@@ -1,9 +1,6 @@
 package homework;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,8 +10,8 @@ public class Main {
                 "Or to take arms against a sea of troubles " +
                 "And by opposing end them To die to sleep " +
                 "No more";
-        System.out.println(getFirstLetterStrings(text));
-        System.out.println(getFirstLetterStrings2(text));
+        System.out.println(getFirstLetterStrings(stringToListWords(text)));
+        System.out.println(getFirstLetterStrings2(stringToSetWords(text)));
     }
 
     /*
@@ -22,9 +19,9 @@ public class Main {
     Дана String с произвольным текстом (без знаков препинания слова разделены пробелом). Необходимо получить map,
     де ключем будет выступать первая буква слова, а значением, список слов начинающихся на эту букву
     */
-    public static Map<Character, List<String>> getFirstLetterStrings(String text) {
+    public static Map<Character, List<String>> getFirstLetterStrings(Collection<String> collection) {
         Map<Character, List<String>> res = new HashMap<>();
-        for (String str : text.toLowerCase().split(" ")) {
+        for (String str : collection) {
             char key = str.charAt(0);
             res.putIfAbsent(key, new ArrayList<>());
             res.get(key).add(str);
@@ -32,14 +29,24 @@ public class Main {
         return res;
     }
 
-    public static Map<Character, List<String>> getFirstLetterStrings2(String text) {
+    public static Map<Character, List<String>> getFirstLetterStrings2(Collection<String> collection) {
         Map<Character, List<String>> res = new HashMap<>();
-        for (String str : text.toLowerCase().split(" ")) {
+        for (String str : collection) {
             char key = str.charAt(0);
             List<String> list = res.getOrDefault(key, new ArrayList<>());
             list.add(str);
             res.put(key, list);
         }
         return res;
+    }
+
+    public static List<String> stringToListWords(String text) {
+        if (text == null) return Collections.emptyList(); // возвращает пустой лист
+        return Arrays.asList(text.toLowerCase().split(" "));
+    }
+
+    public static Set<String> stringToSetWords(String text) {
+        if (text == null) return Collections.emptySet();
+        return new HashSet<>(List.of(text.toLowerCase().split(" ")));
     }
 }
