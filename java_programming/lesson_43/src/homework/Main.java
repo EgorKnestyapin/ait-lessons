@@ -56,8 +56,34 @@ public class Main {
         return res;
     }
 
-
     public static List<String> getMostFrequentlyRepeatedWords(List<String> list, int numFrequentWords) {
+        if (list == null) return Collections.emptyList();
+        Map<String, Integer> res = getStringIntegerMap(convertListTextToListString(list));
+        TreeSet<Map.Entry<String, Integer>> entrySet = new TreeSet<>((a, b) -> {
+            int value = Integer.compare(a.getValue(), b.getValue());
+            int key = a.getKey().compareTo(b.getKey());
+            if (value > 0) {
+                return 1;
+            } else if (value < 0) {
+                return -1;
+            } else {
+                return key + value;
+            }
+        });
+        entrySet.addAll(res.entrySet());
+        int counter = 0;
+        List<String> frequentWords = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : entrySet.descendingSet()) {
+            frequentWords.add(entry.getKey());
+            counter++;
+            if (counter == numFrequentWords) {
+                break;
+            }
+        }
+        return frequentWords;
+    }
+
+    public static List<String> getMostFrequentlyRepeatedWords2(List<String> list, int numFrequentWords) {
         if (list == null) return Collections.emptyList();
         Map<String, Integer> res = getStringIntegerMap(convertListTextToListString(list));
         Set<Map.Entry<String, Integer>> entrySet = new HashSet<>(res.entrySet());
