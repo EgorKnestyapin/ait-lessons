@@ -73,7 +73,9 @@ public class Main {
                     word = entry.getKey();
                 }
             }
-            frequentWords.add(word);
+            if (maxNumberRepetitions != 0) {
+                frequentWords.add(word);
+            }
         }
         return frequentWords;
     }
