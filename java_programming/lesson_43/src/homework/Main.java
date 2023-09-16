@@ -62,13 +62,7 @@ public class Main {
         TreeSet<Map.Entry<String, Integer>> entrySet = new TreeSet<>((a, b) -> {
             int value = Integer.compare(a.getValue(), b.getValue());
             int key = a.getKey().compareTo(b.getKey());
-            if (value > 0) {
-                return 1;
-            } else if (value < 0) {
-                return -1;
-            } else {
-                return key + value;
-            }
+            return value > 0 ? 1 : value < 0 ? -1 : key + value;
         });
         entrySet.addAll(res.entrySet());
         int counter = 0;
@@ -83,6 +77,7 @@ public class Main {
         return frequentWords;
     }
 
+    // Второй вариант решения
     public static List<String> getMostFrequentlyRepeatedWords2(List<String> list, int numFrequentWords) {
         if (list == null) return Collections.emptyList();
         Map<String, Integer> res = getStringIntegerMap(convertListTextToListString(list));
