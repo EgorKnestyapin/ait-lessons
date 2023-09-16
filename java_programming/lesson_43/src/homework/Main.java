@@ -61,6 +61,7 @@ public class Main {
 
     public static List<String> getMostFrequentlyRepeatedWords(List<String> list, int numFrequentWords) {
         Map<String, Integer> res = getStringIntegerMap(convertListTextToListString(list));
+        if (res == null) return Collections.emptyList();
         Set<Map.Entry<String, Integer>> entrySet = new HashSet<>(res.entrySet());
         List<String> frequentWords = new ArrayList<>();
         for (int i = 0; i < numFrequentWords; i++) {
@@ -78,6 +79,7 @@ public class Main {
     }
 
     private static Map<String, Integer> getStringIntegerMap(List<String> list) {
+        if (list == null) return Collections.emptyMap();
         Map<String, Integer> res = new HashMap<>();
         for (String word : list) {
             res.put(word, res.getOrDefault(word, 0) + 1);
