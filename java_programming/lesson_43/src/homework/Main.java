@@ -43,12 +43,10 @@ public class Main {
     Необходимо получиить N самых часто встречающихся слов
      */
     public static List<String> stringToListWords(String text) {
-        if (text == null) return Collections.emptyList(); // возвращает пустой лист
         return Arrays.asList(text.toLowerCase().split(" "));
     }
 
     public static List<String> convertListTextToListString(List<String> list) {
-        if (list == null) return Collections.emptyList();
         List<String> res = new ArrayList<>();
         for (String text : list) {
             for (String word : stringToListWords(text)) {
@@ -60,6 +58,7 @@ public class Main {
 
 
     public static List<String> getMostFrequentlyRepeatedWords(List<String> list, int numFrequentWords) {
+        if (list == null) return Collections.emptyList();
         Map<String, Integer> res = getStringIntegerMap(convertListTextToListString(list));
         if (res == null) return Collections.emptyList();
         Set<Map.Entry<String, Integer>> entrySet = new HashSet<>(res.entrySet());
@@ -81,7 +80,6 @@ public class Main {
     }
 
     private static Map<String, Integer> getStringIntegerMap(List<String> list) {
-        if (list == null) return Collections.emptyMap();
         Map<String, Integer> res = new HashMap<>();
         for (String word : list) {
             res.put(word, res.getOrDefault(word, 0) + 1);
