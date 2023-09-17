@@ -49,9 +49,7 @@ public class Main {
     public static List<String> convertListTextToListString(List<String> list) {
         List<String> res = new ArrayList<>();
         for (String text : list) {
-            for (String word : stringToListWords(text)) {
-                res.add(word);
-            }
+            res.addAll(stringToListWords(text));
         }
         return res;
     }
@@ -59,11 +57,12 @@ public class Main {
     public static List<String> getMostFrequentlyRepeatedWords(List<String> list, int numFrequentWords) {
         if (list == null) return Collections.emptyList();
         Map<String, Integer> res = getStringIntegerMap(convertListTextToListString(list));
-        TreeSet<Map.Entry<String, Integer>> entrySet = new TreeSet<>((a, b) -> {
+        Comparator<Map.Entry<String, Integer>> comparator = (a, b) -> {
             int value = Integer.compare(a.getValue(), b.getValue());
             int key = a.getKey().compareTo(b.getKey());
-            return value > 0 ? 1 : value < 0 ? -1 : key + value;
-        });
+            return value != 0 ? value : key;
+        };
+        TreeSet<Map.Entry<String, Integer>> entrySet = new TreeSet<>(comparator);
         entrySet.addAll(res.entrySet());
         int counter = 0;
         List<String> frequentWords = new ArrayList<>();
