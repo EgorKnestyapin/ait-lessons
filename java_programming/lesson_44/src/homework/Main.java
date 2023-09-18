@@ -17,10 +17,9 @@ public class Main {
      */
     public static boolean findPairNumSum1(List<Integer> list, int N) {
         List<Integer> res = new ArrayList<>(list);
-        Collections.sort(res);
         for (int i = 0; i < res.size() - 1; i++) {
-            int index = Collections.binarySearch(res.subList(i + 1, res.size()), N - res.get(i));
-            if (index >= 0) {
+            boolean isContains = res.contains(N - res.get(i));
+            if (isContains) {
                 return true;
             }
         }
