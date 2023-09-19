@@ -14,6 +14,7 @@ public class Main {
         System.out.println(isBracketSequenceRight(seq3));
         System.out.println(isBracketSequenceRight(seq4));
     }
+
     /* ** Задача 1 **
     Дана строка - скобочная последовательность ( строка состоящая из скобок трех видов *() [] {} ).
     Написать метод (алгоритм обсуждали в классе) который проверит правильность расстановки скобок.
@@ -39,6 +40,9 @@ public class Main {
                 return false;
             }
         }
-        return true;
+        if (stack.isEmpty()) {
+            return true;
+        }
+        return false;
     }
 }
