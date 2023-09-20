@@ -1,9 +1,15 @@
 package homework;
 
-import java.util.Deque;
-import java.util.LinkedList;
+import java.util.*;
 
 public class Main {
+    public static Map<Character, Character> pairToOpenBracket = Map.of(
+            '[', ']',
+            '{', '}',
+            '(', ')'
+    );
+    public static Set<Character> pairToCloseBracket = new HashSet<>(pairToOpenBracket.values());
+
     public static void main(String[] args) {
         String seq1 = "( {} [] )";
         String seq2 = "( {} [ )";
@@ -44,5 +50,39 @@ public class Main {
             return true;
         }
         return false;
+    }
+
+    public static boolean checkBrackets1(String str) {
+        Deque<Character> stack = new LinkedList<>();
+
+        for (char ch : str.toCharArray()) {
+            Character bracket = pairToOpenBracket.get(ch);
+            if (bracket != null) {
+                stack.push(bracket);
+            } else if (!pairToCloseBracket.contains(ch) && (stack.isEmpty() || ch != stack.pop())) {
+                return false;
+            }
+        }
+        return stack.isEmpty();
+    }
+
+    public static boolean checkBrackets2(String bracketStr) {
+        Map<Character, Character> brackets = new HashMap<>();
+        brackets.put(')', '(');
+        brackets.put(']', '[');
+        brackets.put('}', '{');
+
+        Deque<Character> stack = new LinkedList<>();
+        for (Character c : bracketStr.toCharArray()) {
+            if (c == ' ') continue;
+            if (brackets.containsValue(c)) {
+                stack.push(c);
+            } else if (brackets.containsKey(c)) {
+                if (stack.isEmpty() || stack.pop() != brackets.get(c)) {
+                    return false;
+                }
+            }
+        }
+        return stack.isEmpty();
     }
 }
