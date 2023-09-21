@@ -44,8 +44,9 @@ public class Main {
         int counter = stack.size();
         StringBuilder res = new StringBuilder();
         for (int i = 0; i < counter; i++) {
-            res.append(stack.pollLast());
+            res.append(stack.pop());
         }
+        res.reverse();
         return res.toString();
     }
 }
