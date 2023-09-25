@@ -32,13 +32,15 @@ public class Main {
     public static Account createAccountIfDataCorrect(String data) throws AccountCreationException {
         List<String> messagesException = new ArrayList<>();
         AccountCreationException exceptions = new AccountCreationException(messagesException);
+        if (data == null || data.isEmpty()) {
+            messagesException.add("Data is null");
+            throw exceptions;
+        }
+
         String[] ibanAndOwner = data.split(";");
         String iban = ibanAndOwner[0];
 
-        if (data == null) {
-            messagesException.add("Data is null");
-        }
-        if (ibanAndOwner.length != 2) {
+        if (ibanAndOwner.length < 2) {
             messagesException.add("Missing owner data");
         }
         if (iban.length() < 15) {
