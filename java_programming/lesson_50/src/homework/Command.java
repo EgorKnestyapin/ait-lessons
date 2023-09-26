@@ -1,10 +1,30 @@
 package homework;
 
 public enum Command {
-    С("шаг на север"),
-    Ю("шаг на юг"),
-    З("шаг на запад"),
-    В("шаг на восток");
+    С("шаг на север") {
+        @Override
+        public boolean isOpposite(Command command) {
+            return command == Ю;
+        }
+    },
+    Ю("шаг на юг") {
+        @Override
+        public boolean isOpposite(Command command) {
+            return command == С;
+        }
+    },
+    З("шаг на запад") {
+        @Override
+        public boolean isOpposite(Command command) {
+            return command == В;
+        }
+    },
+    В("шаг на восток") {
+        @Override
+        public boolean isOpposite(Command command) {
+            return command == З;
+        }
+    };
     private String step;
 
     Command(String step) {
@@ -14,4 +34,6 @@ public enum Command {
     public String getStep() {
         return step;
     }
+
+    public abstract boolean isOpposite(Command command);
 }
