@@ -31,8 +31,9 @@ public class Main {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))) {
             String line = null;
             while ((line = bufferedReader.readLine()) != null) {
-                String name = line.split(":")[0];
-                int payment = Integer.parseInt(line.split(":")[1]);
+                String[] namePayment = line.split(":");
+                String name = namePayment[0];
+                int payment = Integer.parseInt(namePayment[1]);
                 res.put(name, res.getOrDefault(name, 0) + payment);
             }
             return res;
