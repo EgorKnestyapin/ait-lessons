@@ -49,13 +49,9 @@ public class Main {
              BufferedWriter bufferedWriter2 = new BufferedWriter(new FileWriter("part2.txt"))) {
             Set<Map.Entry<String, Integer>> entrySet = map.entrySet();
             for (Map.Entry<String, Integer> entry : entrySet) {
-                if (entry.getValue() < 2000) {
-                    bufferedWriter1.write(entry.getKey() + ":" + entry.getValue());
-                    bufferedWriter1.newLine();
-                } else if (entry.getValue() > 2000) {
-                    bufferedWriter2.write(entry.getKey() + ":" + entry.getValue());
-                    bufferedWriter2.newLine();
-                }
+                BufferedWriter bf = entry.getValue() > 2000 ? bufferedWriter2 : bufferedWriter1;
+                bf.write(entry.getKey() + ":" + entry.getValue());
+                bf.newLine();
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
