@@ -1,2 +1,6 @@
-package lesson;public interface DoubleOperation {
+package lesson;
+
+public interface DoubleOperation {
+    double apply(double num1, double num2);
+
 }

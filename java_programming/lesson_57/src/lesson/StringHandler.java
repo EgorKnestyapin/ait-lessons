@@ -1,2 +1,5 @@
-package lesson;public interface StringHandler {
+package lesson;
+
+public interface StringHandler<T> {
+    T handler(T el);
 }
