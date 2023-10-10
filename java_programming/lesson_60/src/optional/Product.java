@@ -35,11 +35,4 @@ public class Product {
                 ", price=" + price +
                 '}';
     }
-
-    public static Product getProductByTitle(List<Product> products, String productTitle) {
-        Optional<Product> foundProduct = products.stream()
-                .filter(product -> product.getTitle().equalsIgnoreCase(productTitle))
-                .findAny();
-        return foundProduct.orElse(new Product("doll", 15));
-    }
 }

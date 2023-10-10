@@ -1,6 +1,7 @@
 package optional;
 
 import java.util.List;
+import java.util.Optional;
 
 public class MainProduct {
     // Создайте лист из продуктов - 3-5 продуктов. Пусть в продукте будут поля: название и цена.
@@ -14,9 +15,16 @@ public class MainProduct {
                 new Product("guitar", 100),
                 new Product("table", 40)
         );
-        Product hasIphone = Product.getProductByTitle(products, "iphone");
+        Product hasIphone = getProductByTitle(products, "iphone");
         System.out.println(hasIphone); // Product{title='iphone', price=1000.0}
-        Product hasDrum = Product.getProductByTitle(products, "drum");
+        Product hasDrum = getProductByTitle(products, "drum");
         System.out.println(hasDrum); // Product{title='doll', price=15.0}
+    }
+
+    public static Product getProductByTitle(List<Product> products, String productTitle) {
+        Optional<Product> foundProduct = products.stream()
+                .filter(product -> product.getTitle().equalsIgnoreCase(productTitle))
+                .findAny();
+        return foundProduct.orElse(new Product("doll", 15));
     }
 }
