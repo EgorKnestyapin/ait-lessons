@@ -1,5 +1,6 @@
 package homework;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -28,7 +29,7 @@ public class Main {
         List<Product> productsPriceMoreThan200 = productList.stream()
                 .filter(product -> product.getPrice() > 200)
                 .toList();
-        productsPriceMoreThan200.stream().forEach(product -> System.out.println(product));
+        productsPriceMoreThan200.forEach(product -> System.out.println(product));
 
         // Задание 2. Получите лист товаров, отсортированных по рейтингу
         System.out.println("================== Task2 ===================");
@@ -50,6 +51,17 @@ public class Main {
                 .map(p -> new Product(p.getTitle(), p.getRating() + 1, p.getPrice(), p.getCategory()))
                 .toList();
         productsRatingPlusOne.forEach(product -> System.out.println(product));
+        /*    List<Product> newProducts = products
+        .stream()
+        // вариант с мапом - но для сайд эффектов можно использовать peek
+//        .map(p -> {
+//          p.setRating(p.getRating() + 1);
+//          return p;
+//        })
+        .peek(p -> p.setRating(p.getRating() + 1)) // как forEach, но не терминальный
+        .toList();
+    System.out.println(products);
+         */
 
         // Задание 5 forEach. Измените цену товаров в исходном листе товаров: увеличьте ее на 20 евро.
         // Товары в исходном листе должны измениться.
