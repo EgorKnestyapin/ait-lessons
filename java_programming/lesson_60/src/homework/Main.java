@@ -29,11 +29,11 @@ public class Main {
         System.out.println(expensiveAlcohol);
 
         // Задание 2 ⭐⭐ Получите самый дешевый товар
-        List<Alcohol> cheapestAlcohol = alcoholList.stream()
+        Optional<Alcohol> cheapestAlcohol = alcoholList.stream()
                 .sorted((a, b) -> Double.compare(a.getPrice(), b.getPrice()))
-                .limit(1)
-                .toList();
-        System.out.println(cheapestAlcohol.get(0));
+                .findFirst();
+        // Optional<Alcohol> cheapestAlcohol = alcoholList.stream().min((a, b) -> Double.compare(a.getPrice(), b.getPrice()));
+        System.out.println(cheapestAlcohol.orElse(null));
 
         // Задание 3 ⭐⭐ Создайте Set из исходного листа.
         Set<Alcohol> alcoholSet = new HashSet<>(alcoholList);
