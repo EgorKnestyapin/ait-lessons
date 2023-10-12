@@ -51,9 +51,9 @@ public class Conference implements Comparable<Conference> {
     @Override
     public String toString() {
         return "\nConference:\n" +
-                "theme: " + '\'' + theme + '\'' +
+                "theme: '" + theme + '\'' +
                 ", dateTime: " + dateTime +
-                ", link: " + '\'' + link + '\'';
+                ", link: '" + link + '\'';
     }
 
     @Override
