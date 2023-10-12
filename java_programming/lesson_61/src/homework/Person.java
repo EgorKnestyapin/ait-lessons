@@ -6,11 +6,11 @@ import java.util.Date;
 
 public class Person implements Comparable<Person> {
     private String name;
-    private Date yearOfBirth;
+    private Date birthDate;
 
     public Person(String name, String yearOfBirth) throws ParseException {
         this.name = name;
-        this.yearOfBirth = convertStringToDate(yearOfBirth);
+        this.birthDate = convertStringToDate(yearOfBirth);
     }
 
     public String getName() {
@@ -21,19 +21,19 @@ public class Person implements Comparable<Person> {
         this.name = name;
     }
 
-    public Date getYearOfBirth() {
-        return yearOfBirth;
+    public Date getBirthDate() {
+        return birthDate;
     }
 
-    public void setYearOfBirth(Date yearOfBirth) {
-        this.yearOfBirth = yearOfBirth;
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 
     @Override
     public String toString() {
         return "Person{" +
                 "name='" + name + '\'' +
-                ", yearOfBirth=" + yearOfBirth +
+                ", birthDate=" + birthDate +
                 '}';
     }
 
@@ -45,6 +45,6 @@ public class Person implements Comparable<Person> {
 
     @Override
     public int compareTo(Person o) {
-        return Long.compare(this.yearOfBirth.getTime(), o.yearOfBirth.getTime());
+        return o.birthDate.compareTo(this.birthDate);
     }
 }
