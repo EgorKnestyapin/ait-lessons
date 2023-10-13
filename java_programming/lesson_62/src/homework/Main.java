@@ -29,12 +29,20 @@ public class Main {
                 LocalDate.of(2025, 3, 17));
         System.out.println(periodStringFormat);
     }
+
     /* Создайте метод, который принимает две даты LocalDate, а возвращает строку, сколько времени между ними пройдет.
     Например: "10 years, 2 months, 3 days"
     Используйте класс Period
      */
     public static String getPeriodStringFormat(LocalDate localDate1, LocalDate localDate2) {
         Period period = Period.between(localDate1, localDate2);
-        return period.getYears() + " years, " + period.getMonths() + " months, " + period.getDays() + " days";
+        int years = Math.abs(period.getYears());
+        int months = Math.abs(period.getMonths());
+        int days = Math.abs(period.getDays());
+        return String.format("%d years, %d months, %d days", years, months, days);
+        // %d - digit - для целочисленных
+        // %f - float - для даблов и флоат
+        // %s - String - для строк
+        // %b - boolean - для булеан
     }
 }

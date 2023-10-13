@@ -6,22 +6,22 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class Conference implements Comparable<Conference> {
-    private String theme;
+    private String topic;
     private LocalDateTime dateTime;
     private String link;
 
-    public Conference(String theme, String date, String time, String link) {
-        this.theme = theme;
+    public Conference(String topic, String date, String time, String link) {
+        this.topic = topic;
         this.dateTime = parseStringToLocalDateTime(date, time);
         this.link = link;
     }
 
-    public String getTheme() {
-        return theme;
+    public String getTopic() {
+        return topic;
     }
 
-    public void setTheme(String theme) {
-        this.theme = theme;
+    public void setTopic(String topic) {
+        this.topic = topic;
     }
 
     public LocalDateTime getDateTime() {
@@ -51,7 +51,7 @@ public class Conference implements Comparable<Conference> {
     @Override
     public String toString() {
         return "\nConference:\n" +
-                "theme: '" + theme + '\'' +
+                "topic: '" + topic + '\'' +
                 ", dateTime: " + dateTime +
                 ", link: '" + link + '\'';
     }
