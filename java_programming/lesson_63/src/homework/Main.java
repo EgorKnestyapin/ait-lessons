@@ -2,6 +2,7 @@ package homework;
 
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Optional;
 
 public class Main {
@@ -40,10 +41,21 @@ public class Main {
         if (counter == word.length() / 2 + 1) {
             return "yes";
         }
-        if (word.length() % 2 == 0 || word.charAt(counter - 1) != word.charAt(word.length() - counter)) {
+        if (word.charAt(counter - 1) != word.charAt(word.length() - counter)) {
             return "no";
         }
         return isPalindrome(word, counter - 1);
+    }
+
+    public static String isPalindrome2(String word) {
+        if (word.isEmpty() || word.length() == 1) {
+            return "yes";
+        }
+        if (word.charAt(0) == word.charAt(word.length() - 1)) {
+            isPalindrome2(word.substring(1, word.length() - 1));
+        } else {
+            return "no";
+        }
     }
 
     /* Задание 3 Varargs
