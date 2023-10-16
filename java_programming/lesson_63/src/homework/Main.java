@@ -53,9 +53,8 @@ public class Main {
         }
         if (word.charAt(0) == word.charAt(word.length() - 1)) {
             isPalindrome2(word.substring(1, word.length() - 1));
-        } else {
-            return "no";
         }
+        return "no";
     }
 
     /* Задание 3 Varargs
