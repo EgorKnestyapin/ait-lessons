@@ -44,11 +44,9 @@ public class Main {
     Сегодня возраст нашего героя - 50 лет, сколько лет ему было в 2007
      */
     public static int getAge(int age, int year) {
-        Period period = Period.between(
-                LocalDate.of(2023, 10, 16),
-                LocalDate.of(year, 10, 16)
-        );
-        return age - Math.abs(period.getYears());
+        LocalDate today = LocalDate.now();
+        Period period = Period.between(today.withYear(year), today);
+        return age - period.getYears();
     }
 
     /* Задание 2 Лист задач (опциональное)
@@ -67,8 +65,7 @@ public class Main {
     Отложите все задачи листа на один день.
      */
     public static List<Task> getUpperCaseTitleTaskNextTenDays(List<Task> tasks) {
-        List<Task> list = new ArrayList<>(tasks);
-        List<Task> res = list.stream()
+        List<Task> list = tasks.stream()
                 .filter(task -> {
                     Period period = Period.between(
                             LocalDate.of(2023, 10, 16),
@@ -78,16 +75,15 @@ public class Main {
                 })
                 .map(task -> new Task(task.getTitle().toUpperCase(), task.getDescription(), task.getDate()))
                 .toList();
-        return res;
+        return list;
     }
 
     public static List<Task> changeStatusSaturdayTask(List<Task> tasks) {
-        List<Task> list = new ArrayList<>(tasks);
-        List<Task> res = list.stream()
+        List<Task> list = tasks.stream()
                 .filter(task -> task.getDate().getDayOfWeek() == DayOfWeek.SATURDAY)
                 .peek(Task::switchStatus)
                 .toList();
-        return res;
+        return list;
     }
 
     public static void procrastinate(Task task) {
