@@ -8,7 +8,9 @@ public enum Menu {
     ADD_DOCUMENT(5, "Add document to archive"),
     UPDATE_DOCUMENT(6, "Update document info"),
     DELETE_DOCUMENT(7, "Delete document"),
-    EXIT(8, "Exit");
+    SAVE(8, "Save"),
+    LOAD(9, "Load"),
+    EXIT(10, "Exit");
     private int id;
     private String item;
 
@@ -19,8 +21,10 @@ public enum Menu {
 
     public static void printMenu() {
         Menu[] menu = Menu.values();
-        for (int i = 0; i < menu.length; i++) {
-            System.out.println(menu[i].id + ": " + menu[i].item);
+        for (Menu value : menu) {
+            System.out.print(value.id + ": " + value.item + " | ");
         }
+        System.out.println();
+        System.out.println("Input your choice: ");
     }
 }

@@ -1,0 +1,3 @@
+Document{id=1, name='Name1', author='Author1', dateOfPublishing=1911-03-03}
+Document{id=2, name='Name5', author='Author5', dateOfPublishing=1955-05-05}
+Document{id=3, name='Name3', author='Author3', dateOfPublishing=1911-04-04}
