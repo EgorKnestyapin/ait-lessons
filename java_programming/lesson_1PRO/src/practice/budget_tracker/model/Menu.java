@@ -21,8 +21,10 @@ public enum Menu {
 
     public static void printMenu() {
         Menu[] menu = Menu.values();
-        for (int i = 0; i < menu.length; i++) {
-            System.out.println(menu[i].id + ": " + menu[i].item);
+        for (Menu value : menu) {
+            System.out.print(value.id + ": " + value.item + " | ");
         }
+        System.out.println();
+        System.out.println("Input your choice: ");
     }
 }
