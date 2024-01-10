@@ -15,7 +15,7 @@ public class ArchiveImpl implements Archive {
 
     @Override
     public boolean addDocument(Document document) {
-        if (document == null) {
+        if (document == null || documentList.contains(document)) {
             return false;
         }
         return documentList.add(document);

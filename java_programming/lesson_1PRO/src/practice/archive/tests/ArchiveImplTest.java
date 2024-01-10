@@ -56,7 +56,7 @@ class ArchiveImplTest {
     @Test
     void findDocumentById() {
         assertEquals(doc1, archive.findDocumentById(1));
-        assertEquals(null, archive.findDocumentById(6));
+        assertNull(archive.findDocumentById(6));
     }
 
     @Test

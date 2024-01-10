@@ -5,9 +5,10 @@ public enum Menu {
     GET_DOCUMENT_BY_NAME(2, "Get document by name"),
     GET_DOCUMENT_BY_AUTHOR(3, "Get document by author"),
     GET_DOCUMENT_FOR_PERIOD(4, "Get document for a period"),
-    UPDATE_DOCUMENT(5, "Update document info"),
-    DELETE_DOCUMENT(6, "Delete document"),
-    EXIT(7, "Exit");
+    ADD_DOCUMENT(5, "Add document to archive"),
+    UPDATE_DOCUMENT(6, "Update document info"),
+    DELETE_DOCUMENT(7, "Delete document"),
+    EXIT(8, "Exit");
     private int id;
     private String item;
 
